@@ -55,8 +55,8 @@ module.exports.getEthFromCust = async (req,res) => {
 
     // Calculate balance of user
     let balance = 0;
-    for (let i = 0; i < txList.length; i++) {
-      const tx = txList[i];
+    for (const element of txList) {
+      const tx = element;
       if (tx.from === req.params.address) {
         balance -= parseFloat(tx.value);
       } else {
